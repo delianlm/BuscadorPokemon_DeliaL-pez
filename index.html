@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/images/pokeball.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title>Pokémon Searcher</title>
+  </head>
+  <body class="bg-repeat bg-[url('/assets/images/patron_pokemon1.jpeg')]">
+    <div class="app mx-[24em]">
+      <div class="logo_and_subtitle mx-auto content-center">
+        <img
+          class="logo-pokemon mx-auto max-w-md"
+          src="/assets/images/logo-pokemon.png"
+          alt="logo-pokemon"
+        />
+        <h1
+          class="subtitle fuente text-red-600 text-4xl text-center bg-amber-400 w-fit mx-auto py-2 px-4 rounded-md uppercase font-bold"
+        >
+          Searcher
+        </h1>
+      </div>
+
+      <div class="main flex justify-center gap-6 pt-20">
+        <div class="holder_error_bienvenida">
+          <div
+class="alert mb-8 w-[400px] text-md fuente bg-white rounded-lg border-y-8 border-red-600 px-8 py-6 hidden"
+          >
+            <p>Ding... ding... Captura sin éxito.</p>
+            <p>Pokémon no encontrado.</p>
+            <div class="reset flex mt-2">
+              <button
+                class="bg-red-600text-white rounded-full px-8 bg-red-600 py-1"
+              >
+                <span
+                  class="ph-arrows-clockwise-bold justify-center text-white text-center"
+                ></span>
+              </button>
+              <p class="text-red-600 pl-2">Vuelve a lanzar la pokeball.</p>
+            </div>
+          </div>
+
+          <div class="pokemon_card_holder w-[400px]">
+            <div
+              class="pokemon bg-white rounded-lg border-y-8 border-red-600 mb-8">
+              <div class="name flex justify-center">
+                <h3
+                  class="pokemon_name text-sky-800 text-2xl text-center py-4 font-bold"
+                >
+                  ${(pokemon.name).toUpperCase()} &nbsp
+                </h3>
+                <h3 class="pokemon_nam text-sky-800 text-2xl text-center py-4">
+                  #${pokemon.id}
+                </h3>
+              </div>
+              <picture
+                class="flex w-auto text-center justify-center align-middle"
+              >
+                <div>
+                  <img
+                    class="w-40"
+                    src="${pokemon.sprites.front_default}"
+                    alt="${pokemon.name}"
+                  />
+                  <h4 class="text-sky-800 text-md text-center pb-4 font-bold">
+                    Front
+                  </h4>
+                </div>
+
+                <div>
+                  <img
+                    class="w-40"
+                    src="${pokemon.sprites.back_default}"
+                    alt="${pokemon.name}"
+                  />
+                  <h4 class="text-sky-800 text-md text-center pb-4 font-bold">
+                    Back
+                  </h4>
+                </div>
+              </picture>
+
+              <div class="stats bg-sky-800 px-12 py-6 flex">
+                <h3 class="pokemon_name text-amber-400 text-md pr-4 font-bold">
+                  Estadísticas
+                </h3>
+                <ul>
+                  <li class="pb-1 text-md text-white">
+                    Altura: ${ pokemon.height }
+                  </li>
+                  <li class="pb-1 text-md text-white">
+                    Peso: ${ pokemon.weight }
+                  </li>
+                  <li class="pb-1 text-md text-white">
+                    Experiencia: ${ pokemon.base_experience }
+                  </li>
+                </ul>
+              </div>
+
+              <div class="abilities bg-amber-400 px-12 py-6 flex font-bold">
+                <h3 class="pokemon_name text-sky-800 text-md pr-4">
+                  Movimientos
+                </h3>
+                <div class="text-md text-white text-center h-max">
+                  ${renderAbilities(pokemon.abilities)}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bienvenida">
+            <div
+              class="w-[400px] text-md text-xl text-center text-sky-800 fuente bg-white rounded-lg border-y-8 border-sky-800 px-8 py-6"
+            >
+              <p>¡Búsca tus Pokémon favoritos!</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="form_and_reset">
+          <form class="w-[400px] mx-auto mb-4 flex gap-4">
+            <input
+              type="text"
+              class="w-full px-4 py-[0.2em] border-4 border-red-600 rounded-lg"
+            />
+            <button
+              class="search_button rounded-full px-3 "
+            >
+              <!-- Color para el boton https://www.colorzilla.com/gradient-editor/#ff1a00+53,ffffff+53 -->
+              <span class="ph-magnifying-glass-bold text-slate-800"></span>
+            </button>
+          </form>
+          <button
+            class="reset_list fuente bg-sky-800 hover:bg-sky-600 text-amber-400 font-bold text-lg rounded-lg px-6 py-2 float-right"
+          >
+            Libéralos
+          </button>
+        </div>
+      </div>
+      
+      <div
+        class="loader fixed top-0 left-0 w-full h-full bg-slate-900 bg-opacity-70 flex justify-center items-center hidden"
+      >
+        <div
+          class="loader_holder text-2xl fuente bg-white rounded-lg border-y-8 border-red-600 px-8 py-6"
+        >
+          ... Cargando
+        </div>
+      </div>
+    </div>
+    
+
+    <script type="module" src="/app/main.js"></script>
+  </body>
+</html>

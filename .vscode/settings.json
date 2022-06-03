@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.sass": "sass", 
+    "*.scss": "scss", 
+    "*.css": "scss", 
+  }
+}

@@ -1,0 +1,33 @@
+@import "lib/vars.css";
+@import "lib/mixins.css";
+@import "lib/fontface.css";
+
+* {
+  //border: 1px solid tomato;
+}
+
+html,
+body {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #333;
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: $font_family_base;
+}
+
+.search_button{
+  background: -webkit-linear-gradient(top, rgb(220, 38, 38) 53%,#ffffff 53%); /* Chrome10-25,Safari5.1-6 */
+
+  &:hover {
+    background: -webkit-linear-gradient(top, #ffffff 53%,rgb(220, 38, 38)53%)
+  }
+}
+
+.fuente, h3, h4 {
+  font-family: 'Source Sans Pro',
+}
+
+input:focus{
+  outline: none;
+}
